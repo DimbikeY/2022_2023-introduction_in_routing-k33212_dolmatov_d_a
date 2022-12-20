@@ -97,7 +97,7 @@ Date of finished: --.12.2022
 </code></pre>  
 
 #### SW02.L3.02.TEST Подключение через sudo ssh admin@172.20.20.6
-> <pre><code>     
+<pre><code>     
 > /interface bridge
 > add name=bridge20
 > /interface vlan
@@ -114,5 +114,5 @@ Date of finished: --.12.2022
 > add disabled=no interface=bridge20
 > /system identity
 > set name=SW02.L3.02.TEST  
-> </code></pre>  
+</code></pre>  
 
