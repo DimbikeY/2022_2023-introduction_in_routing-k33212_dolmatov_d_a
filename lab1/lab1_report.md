@@ -117,8 +117,13 @@ Date of finished: --.12.2022
 </code></pre>  
 
 Файл конфигурации .yaml вы можете посмотреть [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab1/lab_1.yaml)  
-Схема, начерченная в draw.io:![lab_1_scheme](https://user-images.githubusercontent.com/57844480/208727105-0626475b-3eed-4071-92ba-ffe65521d81f.png)
+Схема, начерченная в draw.io:![lab_1_scheme](https://user-images.githubusercontent.com/57844480/208727105-0626475b-3eed-4071-92ba-ffe65521d81f.png)  
   
 
-Скриншоты, на которых изображены ping до конечных устройств, а также таблицу выданных ip адресов dhcp серверами, представлены ниже: 
-![ping]([http://url/to/img.png](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab1/ping.png))
+Скриншоты, на которых изображены ping до конечных устройств, а также таблицу выданных ip адресов dhcp серверами, представлены ниже: <img width="473" alt="ping" src="https://user-images.githubusercontent.com/57844480/208727197-fce7c3d3-cac5-4d48-bb0b-368734528257.png">  
+Связь интерфейсов <img width="536" alt="S01" src="https://user-images.githubusercontent.com/57844480/208727566-ae93fad4-69c8-43dd-a7cd-401e1b056c2e.png">  
+
+Выданные ip  <img width="653" alt="R01" src="https://user-images.githubusercontent.com/57844480/208727659-6302d949-665d-4b23-b2c5-5c78cbe39eeb.png">  
+
+
+
