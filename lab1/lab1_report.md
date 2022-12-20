@@ -95,3 +95,24 @@ Date of finished: --.12.2022
 > /system identity  
 > set name=SW02.L3.01.TEST  
 </code></pre>  
+
+#### SW02.L3.02.TEST Подключение через sudo ssh admin@172.20.20.6
+<code><pre>    
+> /interface bridge
+> add name=bridge20
+> /interface vlan
+> add interface=ether2 name=vlan20 vlan-id=20
+> /interface wireless security-profiles
+> set [ find default=yes ] supplicant-identity=MikroTik
+> /interface bridge port
+> add bridge=bridge20 interface=vlan20
+> add bridge=bridge20 interface=ether3
+> /ip address
+> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
+> /ip dhcp-client
+> add disabled=no interface=ether1
+> add disabled=no interface=bridge20
+> /system identity
+> set name=SW02.L3.02.TEST  
+> </code></pre>  
+
