@@ -24,6 +24,7 @@ Date of finished: --.12.2022
  
 ### Ниже приведён код конфигурации каждого из вышеописанных устройств
 #### R01.TEST. Подключение через sudo ssh admin@172.20.20.2
+<pre><code>
 > /interface vlan  
 > add interface=ether2 name=vlan10 vlan-id=10  
 > add interface=ether2 name=vlan20 vlan-id=20  
@@ -46,3 +47,5 @@ Date of finished: --.12.2022
 > add address=10.10.20.0/24 gateway=10.10.20.1  
 > /system identity  
 > set name=R01.TEST  
+</code></pre>  
+
