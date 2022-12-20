@@ -49,7 +49,7 @@ Date of finished: --.12.2022
 > set name=R01.TEST  
 </code></pre>  
 
-#### SW01.L3.01.TEST Подключение через sudo ssh admin@172.20.20.2  
+#### SW01.L3.01.TEST Подключение через sudo ssh admin@172.20.20.3 
 <pre><code>  
 > /interface bridge
 > add name=bridge10  
@@ -75,4 +75,23 @@ Date of finished: --.12.2022
 > /system identity  
 > set name=SW01.L3.01.TEST  
 </code></pre>  
-#### R01.TEST. Подключение через sudo ssh admin@172.20.20.2  
+
+#### SW02.L3.01.TEST Подключение через sudo ssh admin@172.20.20.4
+<pre><code>
+> /interface bridge  
+> add name=bridge10  
+> /interface vlan  
+> add interface=ether2 name=vlan10 vlan-id=10  
+> /interface wireless security-profiles  
+> set [ find default=yes ] supplicant-identity=MikroTik  
+> /interface bridge port  
+> add bridge=bridge10 interface=vlan10  
+> add bridge=bridge10 interface=ether3  
+> /ip address  
+> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28  
+> /ip dhcp-client  
+> add disabled=no interface=ether1  
+> add disabled=no interface=bridge10  
+> /system identity  
+> set name=SW02.L3.01.TEST  
+</code></pre>  
