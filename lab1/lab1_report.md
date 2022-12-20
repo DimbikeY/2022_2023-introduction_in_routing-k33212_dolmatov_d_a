@@ -25,14 +25,14 @@ Date of finished: --.12.2022
 ### Ниже приведён код конфигурации каждого из вышеописанных устройств
 #### R01.TEST. Подключение через sudo ssh admin@172.20.20.2
 > /interface vlan  
-> add interface=ether2 name=vlan10 vlan-id=10
-> add interface=ether2 name=vlan20 vlan-id=20
-> /interface wireless security-profiles
-> set [ find default=yes ] supplicant-identity=MikroTik
-> ip pool
-> add name=pool10 ranges=10.10.10.10-10.10.10.228
-> add name=pool20 ranges=10.10.20.10-10.10.20.228
-> /ip dhcp-server
+> add interface=ether2 name=vlan10 vlan-id=10  
+> add interface=ether2 name=vlan20 vlan-id=20  
+> /interface wireless security-profiles 
+> set [ find default=yes ] supplicant-identity=MikroTik 
+> ip pool 
+> add name=pool10 ranges=10.10.10.10-10.10.10.228 
+> add name=pool20 ranges=10.10.20.10-10.10.20.228 
+> /ip dhcp-server 
 > add address-pool=pool10 disabled=no interface=vlan10 name=server10
 > add address-pool=pool20 disabled=no interface=vlan20 name=server20
 > /ip address
