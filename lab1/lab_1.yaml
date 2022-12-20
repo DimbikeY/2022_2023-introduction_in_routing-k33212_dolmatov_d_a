@@ -30,14 +30,14 @@ topology:
 
 
   PC1:
-   kind: linux
-   image: ubuntu:latest
+   kind: vr-ros
+   image: vrnetlab/vr-routeros:6.47.9
    mgmt_ipv4: 172.20.20.6
 
 
   PC2:
-   kind: linux
-   image: ubuntu:latest
+   kind: vr-ros
+   image: vrnetlab/vr-routeros:6.47.9
    mgmt_ipv4: 172.20.20.7
 
  links:
