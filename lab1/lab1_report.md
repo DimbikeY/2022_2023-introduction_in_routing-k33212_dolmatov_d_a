@@ -116,7 +116,8 @@ Date of finished: --.12.2022
 > set name=SW02.L3.02.TEST  
 </code></pre>  
 
-Файл конфигурации .yaml вы можете посмотреть [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab1/lab_1_scheme.png)  
+Файл конфигурации .yaml вы можете посмотреть [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab1/lab_1.yaml)  
+А схему - [тут](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab1/lab_1_scheme.png)
 
 Скриншоты, на которых изображены ping до конечных устройств, а также таблицу выданных ip адресов dhcp серверами, представлены ниже: 
 ![ping]([http://url/to/img.png](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab1/ping.png))
