@@ -4,8 +4,8 @@ Course: [Introduction in routing](https://github.com/itmo-ict-faculty/introducti
 Year: 2022/2023  
 Group: K33212  
 Author: Dolmatov Dmitrii Alexeevich  
-Lab: Lab2 
-Date of create: 16.12.2022  
+Lab: Lab2  
+Date of create: 21.12.2022  
 Date of finished: --.12.2022  
   
 # Лабораторная работ №2 "Эмуляция распределенной корпоративной сети связи, настройка статической маршрутизации между филиалами"  
