@@ -24,7 +24,8 @@ Date of finished: --.12.2022
 Файл конфигурации .yaml вы можете посмотреть [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab1/lab_1.yaml)   
 Схема, начерченная в draw.io:![lab_1_scheme](https://user-images.githubusercontent.com/57844480/208727105-0626475b-3eed-4071-92ba-ffe65521d81f.png)  
  
-### Ниже приведён код конфигурации каждого из вышеописанных устройств
+### Ниже приведён код конфигурации каждого из вышеописанных устройств  
+#### Подсеть: 172.20.20.0/24  
 #### R01.TEST. Подключение через sudo ssh admin@172.20.20.2
 <pre><code>
 > /interface vlan  
