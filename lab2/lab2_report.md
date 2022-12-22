@@ -88,21 +88,50 @@ R.01.FRT Подключение через ssh admin@172.20.20.4
 
 PC1 Подключение через ssh admin@172.20.20.5  
 <pre><code>   
-> /ip pool  
-> add name=pool2 ranges=192.168.20.5-192.168.20.254
-> /ip dhcp-server
-> add address-pool=pool2 disabled=no interface=ether4 name=dhcp2
 > /ip address
 > add address=172.15.255.30/30 interface=ether1 network=172.15.255.28
-> add address=10.10.30.2/24 interface=ether2 network=10.10.30.0
-> add address=10.10.10.3/24 interface=ether3 network=10.10.10.0
-> add address=192.168.20.1/24 interface=ether4 network=192.168.20.0
 > /ip dhcp-client
 > add disabled=no interface=ether1
+> add disabled=no interface=ether2
 > /ip route
-> add distance=1 dst-address=192.168.10.0/24 gateway=10.10.30.3
-> add distance=1 dst-address=192.168.30.0/24 gateway=10.10.10.2
+> add distance=1 dst-address=10.10.20.2/24 gateway=192.168.10.1
+> add distance=1 dst-address=10.10.10.2/24 gateway=192.168.10.1
+> add distance=1 dst-address=192.168.20.0/24 gateway=192.168.10.1
+> add distance=1 dst-address=192.168.30.0/24 gateway=192.168.10.1
 > /system identity
-> set name=R01.FRT  
+> set name=PC1
 </pre></code>  
 
+PC2 Подключение через ssh admin@172.20.20.6  
+<pre><code>   
+> /ip address
+> add address=172.15.255.30/30 interface=ether1 network=172.15.255.28
+> /ip dhcp-client
+> add disabled=no interface=ether1
+> add disabled=no interface=ether2
+> /ip route
+> add distance=1 dst-address=10.10.30.2/24 gateway=192.168.20.1
+> add distance=1 dst-address=10.10.10.3/24 gateway=192.168.20.1
+> add distance=1 dst-address=192.168.10.0/24 gateway=192.168.20.1
+> add distance=1 dst-address=192.168.30.0/24 gateway=192.168.20.1
+> /system identity
+> set name=PC2
+</pre></code>  
+
+PC3 Подключение через ssh admin@172.20.20.7 
+<pre><code>   
+> /ip address
+> add address=172.15.255.30/30 interface=ether1 network=172.15.255.28
+> /ip dhcp-client
+> add disabled=no interface=ether1
+> add disabled=no interface=ether2
+> /ip route
+> add distance=1 dst-address=10.10.20.3/24 gateway=192.168.30.1
+> add distance=1 dst-address=10.10.30.3/24 gateway=192.168.30.1
+> add distance=1 dst-address=192.168.10.0/24 gateway=192.168.30.1
+> add distance=1 dst-address=192.168.20.0/24 gateway=192.168.30.1
+> /system identity
+> set name=PC3
+</pre></code>  
+
+### Пинги для проверки корректной работы статической маршрутизации:
