@@ -16,4 +16,12 @@ Date of finished: --.12.2022
 ### Ход работы  
 #### Схема изображена на рисунке
 Файл конфигурации .yaml вы можете посмотреть [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab2/lab_2.yaml)  
-Схема, начерченная в draw.io:![lab_2_scheme](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab2/lab_2_scheme.png)
+Схема, начерченная в draw.io:![lab_2_scheme](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab2/lab_2_scheme.png)    
+#### У нас имеется 6 устройств, таких как:  
+* PC1  
+* PC2  
+* PC3  
+* R01.MSK  
+* R01.FRT  
+* R01.BRL  
+#### Напишем текст конфигурации каждого из них
