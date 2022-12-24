@@ -4,7 +4,7 @@ Course: [Introduction in routing](https://github.com/itmo-ict-faculty/introducti
 Year: 2022/2023  
 Group: K33212  
 Author: Dolmatov Dmitrii Alexeevich  
-Lab: Lab1  
+Lab: Lab3  
 Date of create: 24.12.2022  
 Date of finished: --.12.2022  
 
