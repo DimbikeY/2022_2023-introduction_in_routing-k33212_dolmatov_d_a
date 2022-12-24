@@ -21,8 +21,11 @@ Date of finished: --.12.2022
 4. SW02.L3.01.TEST
 5. PC1
 6. PC2  
+Файл конфигурации .yaml вы можете посмотреть [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab1/lab_1.yaml)   
+Схема, начерченная в draw.io:![lab_1_scheme](https://user-images.githubusercontent.com/57844480/208727105-0626475b-3eed-4071-92ba-ffe65521d81f.png)  
  
-### Ниже приведён код конфигурации каждого из вышеописанных устройств
+### Ниже приведён код конфигурации каждого из вышеописанных устройств  
+#### Подсеть: 172.20.20.0/24  
 #### R01.TEST. Подключение через sudo ssh admin@172.20.20.2
 <pre><code>
 > /interface vlan  
@@ -116,10 +119,7 @@ Date of finished: --.12.2022
 > set name=SW02.L3.02.TEST  
 </code></pre>  
 
-Файл конфигурации .yaml вы можете посмотреть [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab1/lab_1.yaml)  
-Схема, начерченная в draw.io:![lab_1_scheme](https://user-images.githubusercontent.com/57844480/208727105-0626475b-3eed-4071-92ba-ffe65521d81f.png)  
   
-
 Скриншоты, на которых изображены ping до конечных устройств, а также таблицу выданных ip адресов dhcp серверами, представлены ниже: <img width="473" alt="ping" src="https://user-images.githubusercontent.com/57844480/208727197-fce7c3d3-cac5-4d48-bb0b-368734528257.png">  
 Связь интерфейсов:  <img width="536" alt="S01" src="https://user-images.githubusercontent.com/57844480/208727566-ae93fad4-69c8-43dd-a7cd-401e1b056c2e.png">  
 
