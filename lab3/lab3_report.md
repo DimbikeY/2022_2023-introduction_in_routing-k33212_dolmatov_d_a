@@ -140,28 +140,28 @@ Date of finished: --.12.2022
 > > </code></pre>  
 
 #### R01.MSK Подключение через sudo ssh admin@172.10.10.6  
-> /interface bridge
-> add name=Lo0
-> /interface wireless security-profiles
-> set [ find default=yes ] supplicant-identity=MikroTik
-> /routing ospf instance
-> set [ find default=yes ] router-id=5.5.5.5
-> /ip address
-> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
-> add address=172.16.4.2/30 interface=ether2 network=172.16.4.0
-> add address=172.16.7.1/30 interface=ether3 network=172.16.7.0
+> /interface bridge  
+> add name=Lo0  
+> /interface wireless security-profiles  
+> set [ find default=yes ] supplicant-identity=MikroTik  
+> /routing ospf instance  
+> set [ find default=yes ] router-id=5.5.5.5  
+> /ip address  
+> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28  
+> add address=172.16.4.2/30 interface=ether2 network=172.16.4.0  
+> add address=172.16.7.1/30 interface=ether3 network=172.16.7.0  
 > add address=5.5.5.5/32 interface=Lo0 network=5.5.5.5
-> /ip dhcp-client
-> add disabled=no interface=ether1
-> /mpls ldp
-> set enabled=yes transport-address=5.5.5.5
-> /mpls ldp interface
-> add interface=ether2
-> add interface=ether3
-> /routing ospf network
-> add area=backbone
-> /system identity
-> set name=R01.MSK  
+> /ip dhcp-client  
+> add disabled=no interface=ether1  
+> /mpls ldp  
+> set enabled=yes transport-address=5.5.5.5  
+> /mpls ldp interface  
+> add interface=ether2  
+> add interface=ether3  
+> /routing ospf network  
+> add area=backbone  
+> /system identity  
+> set name=R01.MSK    
 
 #### R01.SPB Подключение через sudo ssh admin@172.10.10.7  
 > /interface bridge
