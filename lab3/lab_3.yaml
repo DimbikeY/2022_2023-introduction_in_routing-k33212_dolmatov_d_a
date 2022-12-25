@@ -2,7 +2,7 @@ name: lab3
 
 mgmt:
   network: statics
-  ipv4_subnet: 172.20.20.0/24
+  ipv4_subnet: 172.10.10.0/24
 
 topology:
 
@@ -11,42 +11,42 @@ topology:
     R01.NY:
       kind: vr-ros
       image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.20.20.2
+      mgmt_ipv4: 172.10.10.2
 
     R01.LND:
       kind: vr-ros
       image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.20.20.3
+      mgmt_ipv4: 172.10.10.3
 
     R01.LBN:
       kind: vr-ros
       image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.20.20.4
+      mgmt_ipv4: 172.10.10.4
 
     R01.HKI:
       kind: vr-ros
       image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.20.20.5
+      mgmt_ipv4: 172.10.10.5
     
     R01.MSK:
       kind: vr-ros
       image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.20.20.6
+      mgmt_ipv4: 172.10.10.6
 
     R01.SPB:
       kind: vr-ros
       image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.20.20.7
+      mgmt_ipv4: 172.10.10.7
     
     SGI-Prism:
       kind: vr-ros
       image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.20.20.8
+      mgmt_ipv4: 172.10.10.8
 
     PC1:
       kind: vr-ros
       image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.20.20.9
+      mgmt_ipv4: 172.10.10.9
     
   links:
     - endpoints: ["R01.NY:eth1","SGI-Prism:eth1"]
