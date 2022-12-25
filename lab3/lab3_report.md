@@ -57,34 +57,33 @@ Date of finished: --.12.2022
 > set name=R01.NY
 </code></pre>  
  
-#### SW01.L3.01.TEST Подключение через sudo ssh admin@172.20.20.3 
+#### SW01.LND Подключение через sudo ssh admin@172.10.10.3 
 <pre><code>  
 > /interface bridge
-> add name=bridge10  
-> add name=bridge20  
-> /interface vlan  
-> add interface=ether2 name=vlan10 vlan-id=10  
-> add interface=ether3 name=vlan101 vlan-id=10  
-> add interface=ether2 name=vlan20 vlan-id=20    
-> add interface=ether4 name=vlan201 vlan-id=20  
-> /interface wireless security-profiles  
-> set [ find default=yes ] supplicant-identity=MikroTik  
-> /interface bridge port  
-> add bridge=bridge20 interface=vlan20     
-> add bridge=bridge10 interface=vlan10    
-> add bridge=bridge20 interface=vlan203    
-> add bridge=bridge10 interface=vlan103  
-> /ip address  
-> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28  
-> /ip dhcp-client  
-> add disabled=no interface=ether1  
-> add disabled=no interface=bridge10  
-> add disabled=no interface=bridge20  
-> /system identity  
-> set name=SW01.L3.01.TEST  
+> add name=Lo0
+> /interface wireless security-profiles
+> set [ find default=yes ] supplicant-identity=MikroTik
+> /routing ospf instance
+> set [ find default=yes ] router-id=2.2.2.2
+> /ip address
+> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
+> add address=172.16.1.2/30 interface=ether2 network=172.16.1.0
+> add address=172.16.3.1/30 interface=ether3 network=172.16.3.0
+> add address=2.2.2.2/32 interface=Lo0 network=2.2.2.2
+> /ip dhcp-client
+> add disabled=no interface=ether1
+> /mpls ldp
+> set enabled=yes transport-address=2.2.2.2
+> /mpls ldp interface
+> add interface=ether2
+> add interface=ether3
+> /routing ospf network
+> add area=backbone
+> /system identity
+> set name=R01.LND 
 </code></pre>  
 
-#### SW02.L3.01.TEST Подключение через sudo ssh admin@172.20.20.4
+#### R01.LBN Подключение через sudo ssh admin@172.20.20.4
 <pre><code>
 > /interface bridge  
 > add name=bridge10  
