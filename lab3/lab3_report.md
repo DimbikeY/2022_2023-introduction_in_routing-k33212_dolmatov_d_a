@@ -244,8 +244,7 @@ Date of finished: --.12.2022
 Проверка пинга между входом/выхода туннеля: <img width="452" alt="ping" src="https://user-images.githubusercontent.com/57844480/209515434-c1f1155a-e54c-497d-a6a9-c66bf94abd49.png">
 
 Файл конфигурации .yaml вы можете посмотреть [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab3/lab_3.yaml)  
-Схема, начерченная в draw.io:![lab_1_scheme](![lab3_scheme](https://user-images.githubusercontent.com/57844480/209515648-cc706040-87bc-4836-93b7-9e937ad2be35.png)   
-
+Схема, начерченная в draw.io:![lab_1_scheme](![lab3_scheme](https://user-images.githubusercontent.com/57844480/209515648-cc706040-87bc-4836-93b7-9e937ad2be35.png))
 ### Особенность, которую хотелось бы отметить:  
 #### Пинг возможен только между ПК и сервером. Невозможно следить за "кишками" передачи трафика с конечных устройств, ровно как и с роутеров невозможно смотреть за конечными устройствами, но пинговать другие роутеры можно
 
