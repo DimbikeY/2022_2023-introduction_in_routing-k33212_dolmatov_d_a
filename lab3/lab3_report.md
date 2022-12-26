@@ -197,6 +197,39 @@ Date of finished: --.12.2022
 > set name=R01.SPB
 </code></pre>  
 
+#### SGI-Prism Подключение через sudo ssh admin@172.10.10.8  
+<pre><code>  
+> /interface wireless security-profiles
+> set [ find default=yes ] supplicant-identity=MikroTik
+> /ip address
+> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
+> add address=192.168.1.10/24 interface=ether2 network=192.168.1.0
+> /ip dhcp-client
+> add disabled=no interface=ether1
+> /system identity
+> set name=SGI-Prism
+</code></pre>  
+
+#### PC1 Подключение через sudo ssh admin@172.10.10.9
+<pre><code> 
+> /interface wireless security-profiles
+> set [ find default=yes ] supplicant-identity=MikroTik
+> /ip address
+> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
+> add address=192.168.1.20/24 interface=ether2 network=192.168.1.0
+> /ip dhcp-client
+> add disabled=no interface=ether1
+> /system identity
+> set name=PC1
+</code></pre> 
+
+#### Скриншоты, показывающие таблицу меток MPLS, приведена ниже: 
+Для HKI:  HKI.png  
+Для LBN:  LBN.png
+Для LND:  LND.png
+Для MSK:  MSK.png
+Для NY:   NY.png
+Для SPB:  SPB.png
 
 Файл конфигурации .yaml вы можете посмотреть [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab1/lab_1.yaml)  
 Схема, начерченная в draw.io:![lab_1_scheme](https://user-images.githubusercontent.com/57844480/208727105-0626475b-3eed-4071-92ba-ffe65521d81f.png)  
