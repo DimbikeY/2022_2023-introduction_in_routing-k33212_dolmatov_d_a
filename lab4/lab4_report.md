@@ -236,7 +236,23 @@ R01SPB:![ТЫК](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k
 
 R01SVL:![ТЫК](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/%D0%A1%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20R01.SVL%20and%20ping.png)   
 
-Схема, начерченная в draw.io:![lab4_scheme](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/lab4_scheme.png)
+Схема, начерченная в draw.io:![lab4_scheme](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/lab4_scheme.png)  
+
+## Вторая часть работы:  
+### Разберём VRF командой ip route vrf remove 0. Сделаем похожее задание с прошлой лабораторной работы по созданию l2vpn
+#### В основном, добавим следующие команды:
+> interface bridge add name=MPLS_VPLS
+> interface vpls add disabled=no name=VPLS1 remote-peer=указываем граничные роутеры перед ПК vpls-id=10:0 (на каждый граничный компьютер по каждому интерфейсу)
+> Добавляем interface bridge port add bridge=MPLS_VPLS interface=VPLS1 (столько интерфейсов, сколько дырдочек мы сделали)
+> Не забываем interface bridge port add bridge=MPLS_VPLS interface=ether2 (то есть тот, который подключен со стороны ПК)
+> То же самое делаем для всех граничных роутеров: NY, SPB, SVL  
+### Скриншоты пингов представлены ниже:
+PC1:![ТЫК]()  
+PC2:![ТЫК]()  
+PC3:![ТЫК]()  
+
+
+
 ### Особенность, которую хотелось бы отметить:  
 #### Если указывать номер AS не по умолчанию, то будет рассинхрон между bgp peer и bgp instance, из-за чего связность работать не будет. Также стоит добавить, что необходимо на каждом устройстве в топологии указать routing bgp network с минимальной маской, обхватываюшей весь диапазон интерфейсов роутеров.
 
