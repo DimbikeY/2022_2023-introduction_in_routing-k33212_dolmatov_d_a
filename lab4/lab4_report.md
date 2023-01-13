@@ -23,72 +23,7 @@ Date of finished: --.12.2022
 6. R01.MSK
 7. R01.LBN
 8. PC1  
-### Изобразим код файла конфигурации .yaml  
-> name: lab4
-
-> mgmt:
->  network: static3
->  ipv4_subnet: 172.10.10.0/24
-
->topology:
-
->  nodes:
-  
-    R01.NY:
-      kind: vr-ros
-      image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.10.10.2
-
-    R01.LND:
-      kind: vr-ros
-      image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.10.10.3
-
-    R01.LBN:
-      kind: vr-ros
-      image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.10.10.4
-
-    R01.HKI:
-      kind: vr-ros
-      image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.10.10.5
-    
-    R01.SVL:
-      kind: vr-ros
-      image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.10.10.6
-
-    R01.SPB:
-      kind: vr-ros
-      image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.10.10.7
-    
-    PC1:
-      kind: vr-ros
-      image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.10.10.8
-
-    PC2:
-      kind: vr-ros
-      image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.10.10.9
-    
-    PC3:
-      kind: vr-ros
-      image: vrnetlab/vr-routeros:6.47.9
-      mgmt_ipv4: 172.10.10.10
-    
-  links:
-    - endpoints: ["R01.NY:eth1","PC2:eth1"]
-    - endpoints: ["R01.NY:eth2","R01.LND:eth1"]
-    - endpoints: ["R01.LND:eth3","R01.LBN:eth1"]
-    - endpoints: ["R01.LND:eth2","R01.HKI:eth1"]
-    - endpoints: ["R01.HKI:eth2","R01.SPB:eth1"]
-    - endpoints: ["R01.HKI:eth3","R01.LBN:eth2"]
-    - endpoints: ["R01.SPB:eth2","PC1:eth1"]
-    - endpoints: ["R01.LBN:eth3","R01.SVL:eth1"]
-    - endpoints: ["R01.SVL:eth2","PC3:eth1"]
+### Код файла конфигурации находится здесь: lab_4.yaml
 
 ### Ниже приведён код конфигурации каждого из вышеописанных устройств
 #### R01.NY Подключение через sudo ssh admin@172.10.10.2
