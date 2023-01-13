@@ -125,7 +125,7 @@ add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer2 remote-address=4.4.4.
 /routing ospf network
 add area=backbone
 /system identity
-set name=R01.HKI
+set name=R01.LBN
 </pre></code>  
   
  
