@@ -241,7 +241,7 @@ R01SVL:![ТЫК](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k
 ## Вторая часть работы:  
 ### Разберём VRF командой ip route vrf remove 0. Сделаем похожее задание с прошлой лабораторной работы по созданию l2vpn
 #### В основном, добавим следующие команды:
-> *interface bridge add name=MPLS_VPLS*  
+> ##interface bridge add name=MPLS_VPLS## 
 > *interface vpls add disabled=no name=VPLS1 remote-peer=*указываем граничные роутеры перед ПК vpls-id=10:0 (на каждый граничный компьютер по каждому интерфейсу)  
 > Добавляем *interface bridge port add bridge=MPLS_VPLS interface=VPLS1* (столько интерфейсов, сколько дырдочек мы сделали)  
 > Не забываем *interface bridge port add bridge=MPLS_VPLS interface=ether2* (то есть тот, который подключен со стороны ПК)  
