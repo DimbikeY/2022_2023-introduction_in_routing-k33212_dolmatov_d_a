@@ -23,96 +23,111 @@ Date of finished: --.12.2022
 6. R01.MSK
 7. R01.LBN
 8. PC1  
-### Код файла конфигурации находится [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/lab_4.yaml)
+### Код файла конфигурации находится [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/lab_4.yaml)  
 
 ### Ниже приведён код конфигурации каждого из вышеописанных устройств
 #### R01.NY Подключение через sudo ssh admin@172.10.10.2
-<pre><code>  
-/interface bridge  
-> add name=Lo0
-> add name=EoMPLS_B  
-> /interface vpls 
-> add cisco-style=yes cisco-style-id=666 name=EoMPLS_VPLS remote-peer=6.6.6.6 pw-type=row-ethernet
-> /interface wireless security-profiles
-> set [ find default=yes ] supplicant-identity=MikroTik
-> /routing ospf instance
-> set [ find default=yes ] router-id=1.1.1.1
-> /interface bridge port
-> add bridge=EoMPLS_B interface=ether2
-> add bridge=EoMPLS_B interface=EoMPLS_VPLS
-> /ip address
-> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
-> add address=172.16.1.1/30 interface=ether3 network=172.16.1.0
-> add address=172.16.2.1/30 interface=ether4 network=172.16.2.0
-> add address=1.1.1.1/32 interface=Lo0 network=1.1.1.1
-> /ip dhcp-client
-> add disabled=no interface=ether1
-> /mpls ldp
-> set enabled=yes transport-address=1.1.1.1
-> /mpls ldp interface
-> add interface=ether3
-> add interface=ether4
-> /routing ospf network
-> add area=backbone
-> /system identity
-> set name=R01.NY
-</code></pre>  
+<pre><code>
+/interface bridge
+add name=Lo
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+/routing bgp instance
+set default redistribute-connected=yes router-id=2.2.2.2
+/routing ospf instance
+set [ find default=yes ] router-id=2.2.2.2
+/ip address
+add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
+add address=172.4.20.1/24 interface=ether3 network=172.4.20.0
+add address=192.168.10.10/24 interface=ether2 network=192.168.10.0
+add address=2.2.2.2 interface=Lo network=2.2.2.2
+/ip dhcp-client
+add disabled=no interface=ether1
+/ip route vrf
+add export-route-targets=64666:10 import-route-targets=64666:10 interfaces=ether2 route-distinguisher=64666:10 routing-mark=VRF_DEVOPS
+/mpls ldp
+set enabled=yes
+/mpls ldp interface
+add interface=ether3
+/routing bgp instance vrf
+add redistribute-connected=yes routing-mark=VRF_DEVOPS
+/routing bgp peer
+add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer1 remote-address=3.3.3.3 remote-as=64666 update-source=Lo
+/routing ospf network
+add area=backbone
+/system identity
+set name=R01.NY
+</pre></code>
  
 #### R01.LND Подключение через sudo ssh admin@172.10.10.3 
-<pre><code>  
-> /interface bridge
-> add name=Lo0
-> /interface wireless security-profiles
-> set [ find default=yes ] supplicant-identity=MikroTik
-> /routing ospf instance
-> set [ find default=yes ] router-id=2.2.2.2
-> /ip address
-> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
-> add address=172.16.1.2/30 interface=ether2 network=172.16.1.0
-> add address=172.16.3.1/30 interface=ether3 network=172.16.3.0
-> add address=2.2.2.2/32 interface=Lo0 network=2.2.2.2
-> /ip dhcp-client
-> add disabled=no interface=ether1
-> /mpls ldp
-> set enabled=yes transport-address=2.2.2.2
-> /mpls ldp interface
-> add interface=ether2
-> add interface=ether3
-> /routing ospf network
-> add area=backbone
-> /system identity
-> set name=R01.LND 
-</code></pre>  
+<pre><code>
+/interface bridge
+add name=Lo
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+/routing bgp instance
+set default router-id=3.3.3.3
+/routing ospf instance
+set [ find default=yes ] router-id=3.3.3.3
+/ip address
+add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
+add address=3.3.3.3 interface=Lo network=3.3.3.3
+add address=172.4.20.2/24 interface=ether2 network=172.4.20.0
+add address=172.4.30.1/24 interface=ether3 network=172.4.30.0
+add address=172.4.40.1/24 interface=ether4 network=172.4.40.0
+/ip dhcp-client
+add disabled=no interface=ether1
+/mpls ldp
+set enabled=yes
+/mpls ldp interface
+add interface=ether2
+add interface=ether3
+add interface=ether4
+/routing bgp peer
+add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer1 remote-address=2.2.2.2 remote-as=64666 update-source=Lo
+add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer2 remote-address=4.4.4.4 remote-as=64666 route-reflect=yes update-source=Lo
+add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer3 remote-address=5.5.5.5 remote-as=64666 route-reflect=yes update-source=Lo
+/routing ospf network
+add area=backbone
+/system identity
+set name=R01.LND
+</pre></code> 
 
 #### R01.LBN Подключение через sudo ssh admin@172.10.10.4
-<pre><code>     
-> /interface bridge
-> add name=Lo0
-> /interface wireless security-profiles
-> set [ find default=yes ] supplicant-identity=MikroTik
-> /routing ospf instance
-> set [ find default=yes ] router-id=3.3.3.3
-> /ip address
-> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
-> add address=172.16.2.2/30 interface=ether2 network=172.16.2.0
-> add address=172.16.6.1/30 interface=ether3 network=172.16.6.0
-> add address=172.16.5.2/30 interface=ether4 network=172.16.5.0
-> add address=3.3.3.3/32 interface=Lo0 network=3.3.3.3
-> /ip dhcp-client
-> add disabled=no interface=ether1
-> /mpls ldp
-> set enabled=yes transport-address=3.3.3.3
-> /mpls ldp interface
-> add interface=ether2
-> add interface=ether3
-> add interface=ether4
-> /routing ospf network
-> add area=backbone
-> /system identity
-> set name=R01.LBN
-</code></pre>  
+<pre><code>
+/interface bridge
+add name=Lo
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+/routing bgp instance
+set default router-id=5.5.5.5
+/routing ospf instance
+set [ find default=yes ] router-id=5.5.5.5
+/ip address
+add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
+add address=172.4.40.2/24 interface=ether2 network=172.4.40.0
+add address=172.4.60.2/24 interface=ether3 network=172.4.60.0
+add address=172.4.70.2/24 interface=ether4 network=172.4.70.0
+add address=5.5.5.5 interface=Lo network=5.5.5.5
+/ip dhcp-client
+add disabled=no interface=ether2
+/mpls ldp
+set enabled=yes
+/mpls ldp interface
+add interface=ether2
+add interface=ether3
+add interface=ether4
+/routing bgp peer
+add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer1 remote-address=3.3.3.3 remote-as=64666 route-reflect=yes update-source=Lo
+add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer3 remote-address=6.6.6.6 remote-as=64666 update-source=Lo
+add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer2 remote-address=4.4.4.4 remote-as=64666 route-reflect=yes update-source=Lo
+/routing ospf network
+add area=backbone
+/system identity
+set name=R01.HKI
+</pre></code>  
   
- #### R01.HKI Подключение через sudo ssh admin@172.10.10.5
+ #### R01.LND Подключение через sudo ssh admin@172.10.10.5
 <pre><code>    
 > /interface bridge
 > add name=Lo0
@@ -140,63 +155,72 @@ Date of finished: --.12.2022
 > set name=R01.HKI  
 </code></pre>  
 
-#### R01.MSK Подключение через sudo ssh admin@172.10.10.6  
-<pre><code>   
-> /interface bridge  
-> add name=Lo0  
-> /interface wireless security-profiles  
-> set [ find default=yes ] supplicant-identity=MikroTik    
-> /routing ospf instance  
-> set [ find default=yes ] router-id=5.5.5.5  
-> /ip address  
-> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28  
-> add address=172.16.4.2/30 interface=ether2 network=172.16.4.0  
-> add address=172.16.7.1/30 interface=ether3 network=172.16.7.0  
-> add address=5.5.5.5/32 interface=Lo0 network=5.5.5.5  
-> /ip dhcp-client  
-> add disabled=no interface=ether1  
-> /mpls ldp  
-> set enabled=yes transport-address=5.5.5.5  
-> /mpls ldp interface  
-> add interface=ether2  
-> add interface=ether3  
-> /routing ospf network  
-> add area=backbone  
-> /system identity  
-> set name=R01.MSK  
-</code></pre>  
+#### R01.SPB Подключение через sudo ssh admin@172.10.10.6  
+<pre><code>
+/interface bridge
+add name=Lo
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+/routing bgp instance
+set default router-id=7.7.7.7
+/routing ospf instance
+set [ find default=yes ] router-id=7.7.7.7
+/ip address
+add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
+add address=172.4.50.2/24 interface=ether2 network=172.4.50.0
+add address=192.168.20.10/24 interface=ether3 network=192.168.20.0
+add address=7.7.7.7 interface=Lo network=7.7.7.7
+/ip dhcp-client
+add disabled=no interface=ether1
+/ip route vrf
+add export-route-targets=64666:10 import-route-targets=64666:10 interfaces=ether2 route-distinguisher=64666:10 routing-mark=VRF_DEVOPS
+/mpls ldp
+set enabled=yes
+/mpls ldp interface
+add interface=ether2
+/routing bgp instance vrf
+add redistribute-connected=yes routing-mark=VRF_DEVOPS
+/routing bgp peer
+add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer1 remote-address=4.4.4.4 remote-as=64666 update-source=Lo
+/routing ospf network
+add area=backbone
+/system identity
+set name=R01.SPB
+</pre></code>
 
-#### R01.SPB Подключение через sudo ssh admin@172.10.10.7  
-<pre><code>   
-> /interface bridge
-> add name=Lo0
-> add name=EoMPLS_B
-> /interface vpls
-> add cisco-style=yes cisco-style-id=666 name=EoMPLS_VPLS remote-peer=1.1.1.1 pw-type=row-ethernet
-> /interface wireless security-profiles
-> set [ find default=yes ] supplicant-identity=MikroTik
-> /routing ospf instance
-> set [ find default=yes ] router-id=6.6.6.6
-> /interface bridge port
-> add bridge=EoMPLS_B interface=EoMPLS
-> add bridge=EoMPLS_B interface=ether4
-> /ip address
-> add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
-> add address=172.16.4.2/30 interface=ether2 network=172.16.4.0
-> add address=172.16.7.2/30 interface=ether3 network=172.16.7.0
-> add address=6.6.6.6/32 interface=Lo0 network=6.6.6.6
-> /ip dhcp-client
-> add disabled=no interface=ether1
-> /mpls ldp
-> set enabled=yes transport-address=6.6.6.6
-> /mpls ldp interface
-> add interface=ether2
-> add interface=ether3
-> /routing ospf network
-> add area=backbone
-> /system identity
-> set name=R01.SPB
-</code></pre>  
+#### R01.LBN Подключение через sudo ssh admin@172.10.10.7  
+<pre><code>
+/interface bridge
+add name=Lo
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+/routing bgp instance
+set default router-id=5.5.5.5
+/routing ospf instance
+set [ find default=yes ] router-id=5.5.5.5
+/ip address
+add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
+add address=172.16.3.2/24 interface=ether2 network=172.16.3.0
+add address=172.16.5.2/24 interface=ether3 network=172.16.5.0
+add address=172.16.6.1/24 interface=ether4 network=172.16.6.0
+add address=5.5.5.5 interface=Lo network=5.5.5.5
+/ip dhcp-client
+add disabled=no interface=ether1
+/mpls ldp
+set enabled=yes
+/mpls ldp interface
+add interface=ether2
+add interface=ether3
+add interface=ether4
+/routing bgp peer
+add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer1 remote-address=2.2.2.2 remote-as=65530 route-reflect=yes update-source=Lo
+add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer2 remote-address=3.3.3.3 remote-as=65530 route-reflect=yes update-source=Lo
+add address-families=ip,l2vpn,l2vpn-cisco,vpnv4 name=peer3 remote-address=6.6.6.6 remote-as=65530 update-source=Lo
+/routing ospf network
+add area=backbone
+/system identity
+set name=R01.LBN
+</pre></code>
 
 #### SGI-Prism Подключение через sudo ssh admin@172.10.10.8  
 <pre><code>  
