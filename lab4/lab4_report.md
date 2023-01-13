@@ -15,14 +15,15 @@ Date of finished: --.12.2022
 Изучить протоколы BGP, MPLS и правила организации L3VPN и VPLS.
 ### Ход работы  
 Для начала настроим каждое сетевое устройство, а именно:
-1. SGI Prism - сервер
-2. R01.NY
-3. R01.LND
-4. R01.HKI
-5. R01.SPB
-6. R01.MSK
-7. R01.LBN
-8. PC1  
+1. PC1
+2. PC2
+3. PC3
+4. R01.NY
+5. R01.LND
+6. R01.HKI
+7. R01.SPB
+8. R01.LBN
+9. R01.SVL  
 ### Код файла конфигурации находится [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/lab_4.yaml)  
 
 ### Ниже приведён код конфигурации каждого из вышеописанных устройств
