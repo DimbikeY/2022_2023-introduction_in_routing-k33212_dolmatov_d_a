@@ -24,15 +24,15 @@ Date of finished: --.12.2022
 7. R01.LBN
 8. PC1  
 ### Изобразим код файла конфигурации .yaml  
-name: lab4
+> name: lab4
 
-mgmt:
-  network: static3
-  ipv4_subnet: 172.10.10.0/24
+> mgmt:
+>  network: static3
+>  ipv4_subnet: 172.10.10.0/24
 
-topology:
+>topology:
 
-  nodes:
+>  nodes:
   
     R01.NY:
       kind: vr-ros
