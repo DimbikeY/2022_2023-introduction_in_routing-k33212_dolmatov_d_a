@@ -229,7 +229,7 @@ set name=R01.SPB
 </pre></code>  
 
 ### Проверка связности между роутерами:
-R01NY: ![ТЫК](http://url/to/img.png]](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/%D0%A1%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20R01.NY%20and%20ping.png)
+R01NY: ![ТЫК](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/%D0%A1%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20R01.NY%20and%20ping.png)
 R01SPB:  
 R01SVL:  
 
