@@ -23,7 +23,7 @@ Date of finished: --.12.2022
 6. R01.MSK
 7. R01.LBN
 8. PC1  
-### Код файла конфигурации находится здесь: lab_4.yaml
+### Код файла конфигурации находится [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/lab_4.yaml)
 
 ### Ниже приведён код конфигурации каждого из вышеописанных устройств
 #### R01.NY Подключение через sudo ssh admin@172.10.10.2
