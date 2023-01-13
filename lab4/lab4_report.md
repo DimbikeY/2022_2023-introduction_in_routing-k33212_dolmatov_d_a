@@ -23,7 +23,7 @@ Date of finished: --.12.2022
 6. R01.MSK
 7. R01.LBN
 8. PC1  
-### Код файла конфигурации находится [здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/lab_4.yaml)  
+### Код файла конфигурации находится ![здесь](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/lab_4.yaml)  
 
 ### Ниже приведён код конфигурации каждого из вышеописанных устройств
 #### R01.NY Подключение через sudo ssh admin@172.10.10.2
@@ -235,10 +235,7 @@ R01SPB:![ТЫК](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k
 
 R01SVL:![ТЫК](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/%D0%A1%D0%B2%D1%8F%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20R01.SVL%20and%20ping.png)   
 
-
-#### Скриншоты, показывающие таблицу меток MPLS, приведена ниже: 
-  
-Схема, начерченная в draw.io:![lab4_scheme]()
+Схема, начерченная в draw.io:![lab4_scheme](https://github.com/DimbikeY/2022_2023-introduction_in_routing-k33212_dolmatov_d_a/blob/main/lab4/lab4_scheme.png)
 ### Особенность, которую хотелось бы отметить:  
 #### Пинг возможен только между ПК и сервером. Невозможно следить за "кишками" передачи трафика с конечных устройств, ровно как и с роутеров невозможно смотреть за конечными устройствами, но пинговать другие роутеры можно
 
